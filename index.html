@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Satisfação - Triunfo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #000000, #4b0000, #990000, #000000);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .form-container {
+      background-color: #111;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+      max-width: 550px;
+      width: 100%;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      left: 65px;
+      width: 100px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #222;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #9c0505;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <img src="logo-triunfo.png" alt="Logo Triunfo" class="logo">
+    <h2>Pesquisa de Satisfação</h2>
+    <form action="PesquisaServlet" method="POST">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="matricula">Matrícula:</label>
+      <input type="text" id="matricula" name="matricula" required>
+
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" required pattern="\d{11}" title="Digite apenas os 11 números">
+
+      <label for="demanda">Tipo de demanda atendida:</label>
+      <select id="demanda" name="demanda" required>
+        <option value="">Selecione</option>
+        <option value="pacote_office">Instalação do Pacote Office</option>
+        <option value="entrega_equip">Entrega de Equipamentos</option>
+        <option value="dispositivos">Configuração de Dispositivos</option>
+        <option value="sistema">Acesso a Sistemas</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <label for="nota">Nota de satisfação (1 a 5):</label>
+      <select id="nota" name="nota" required>
+        <option value="">Selecione</option>
+        <option value="1">1 - Péssimo</option>
+        <option value="2">2 - Ruim</option>
+        <option value="3">3 - Regular</option>
+        <option value="4">4 - Bom</option>
+        <option value="5">5 - Excelente</option>
+      </select>
+
+      <label for="comentario">Comentário:</label>
+      <textarea id="comentario" name="comentario" rows="4" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
